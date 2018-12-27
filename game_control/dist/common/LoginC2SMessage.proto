@@ -1,0 +1,46 @@
+option java_package = "com.talk.game.protoBuf";
+option java_outer_classname = "LoginC2SMessage";
+
+//10001 
+message LoginC2S {
+	required string userId = 1;
+}
+//10000
+message HeartbeatC2S {
+	required string userId = 1;
+}
+
+//10002
+message JoinRoomC2S {
+	required string roomId  = 1;
+}
+
+message PointInfo{
+	required int32 x = 1;
+	required int32 y = 2;
+}
+//10003
+message MoveC2S {
+	repeated PointInfo point=1;
+}
+//10004
+message MoveS2C {
+	required string userId  = 1;
+	repeated PointInfo point=2;
+}
+//10005
+message PointInfoByUserS2C{
+	required string userId = 1;
+	required int32 x = 2;
+	required int32 y = 3;
+}
+//10006
+message PointInfoByRoomS2C{
+	message PointInfo{
+		required string userId = 1;
+		required int32 x = 2;
+		required int32 y = 3;
+	}
+	repeated PointInfo point=1;
+}
+

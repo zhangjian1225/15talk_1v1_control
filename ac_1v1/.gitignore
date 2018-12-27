@@ -1,0 +1,8 @@
+.idea/
+/node_modules/*
+/dist/sftp-config.json
+
+.DS_Store
+src/.DS_Store
+dist/*
+!dist/!.gitkeep

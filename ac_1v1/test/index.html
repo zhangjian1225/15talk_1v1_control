@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="WBSDK2.0.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div id="WEBCon" style="position: relative;width: 500px;height: 300px;border: dashed red 1px"></div>
+    <button onclick="bind1()">綁定1</button>
+    <button onclick="tool1('pencil')">画笔</button>
+    <button onclick="tool1('rect')">矩形</button>
+    <button onclick="tool1('seal')">印章</button>
+    <button onclick="tool1('rubberOld')">旧版橡皮擦</button>
+    <button onclick="tool1('draft')">拖拽</button>
+    <button onclick="tool1('back')">撤销</button>
+    <button onclick="tool1('clear')">清空</button>
+    <div id="WEBCon2" style="position: relative;width: 500px;height: 300px;border: dashed yellow 1px"></div>
+    <button onclick="bind2()">綁定2</button>
+    <button onclick="tool2('text')">文字</button>
+    <button onclick="tool2('rect')">矩形</button>
+    <button onclick="tool2('draft')">拖拽</button>
+
+    <button onclick="tool2('highPencil')">荧光笔</button>
+    <button onclick="tool2('rubberNew')">新版橡皮擦</button>
+    <button onclick="tool2('back')">撤销</button>
+<script>
+    var nowWBTar=null,
+            nowWBTar2=null;
+    function bind1() {
+        //首先获取配置数据
+        var conConf=window.WBSDK.createConf('const'),
+                changeConf=window.WBSDK.createConf('change');
+        conConf.ownerID.value='123456';
+        conConf.isSVC.value=false;
+        console.log(conConf);
+        console.log(changeConf);
+        nowWBTar=window.WBSDK.bindWB('WEBCon',conConf,changeConf,callback1);
+    }
+    function tool1(type) {
+        nowWBTar.draw(type,callBackDraw1)
+    }
+    function bind2() {
+        //首先获取配置数据
+        var conConf=window.WBSDK.createConf('const'),
+                changeConf=window.WBSDK.createConf('change');
+        conConf.ownerID.value='654321';
+        conConf.firstTool.value='rect';
+        console.log(conConf);
+        console.log(changeConf);
+        nowWBTar2=window.WBSDK.bindWB('WEBCon2',conConf,changeConf,callback2);
+    }
+    function tool2(type) {
+        nowWBTar2.draw(type,callBackDraw2)
+    }
+    function callBackDraw1(type) {
+        console.log('callBackDraw1----------' + type);
+    }
+    function callBackDraw2(type) {
+        console.log(type);
+    }
+    function callback1(type,localID,obj) {
+        console.log('bind1----------------call1');
+        console.log(type);
+        console.log(localID);
+        console.log(obj);
+    }
+    function callback2(type,localID,obj) {
+        console.log('call2');
+        console.log(type);
+        console.log(localID);
+        console.log(obj);
+    }
+
+
+</script>
+</body>
+</html>

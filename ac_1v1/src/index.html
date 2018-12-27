@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+<!-- h5course sync loading -->
+<div id="h5_course_loading" class="loading_frame hide">
+    <div class="tip_info"></div>
+</div>
+<!-- h5course sync loading -->
+
+<!-- h5course sync screen mask -->
+<div id="mask" class="mask hide"></div>
+<div id="h5_course_mask_forbid" class="mask mask-forbid hide"></div>
+<div id="h5_course_tea_out" class="mask-tip hide">
+    <div class="tip-con">老师当前不在教室</div>
+</div>
+<!-- h5course sync screen mask -->
+
+<!--<div id="h5_course_refresh" class="course-refresh hide">
+    <button id="h5_course_btn_refresh" class="btn btn-refresh h5_course_btn_refresh">加载很慢？点我刷新<br/>（refresh）</button>
+    <button id="h5_course_btn_cdn" class="btn btn-refresh h5_course_btn_cdn">加载不到？点我切换<br/>（changeCdn）</button>
+</div>-->
+
+<div id="h5_course_container" class="h5_course_container">
+
+</div>
+
+<!-- h5course sync result -->
+<!--<div id="h5_course_result" class="result open hide">
+
+</div>-->
+<!-- h5course sync result -->
+
+<!-- h5course sync result stu -->
+<!--<div id="h5_course_result_stu" class="result-stu hide">
+
+</div>-->
+<!-- h5course sync result stu -->
+
+<!--teacher guide-->
+<div id="h5_course_tg" class="tg-box"></div>
+<div id="h5_course_tg_level" class="tg-level-box"></div>
+
+<!--  录音弹框 start-->
+<div id="h5_record_dialog" class="recordMask hide">
+    <div class="recordInfo">
+        <div class="recordIcon"></div>
+        <div class="recordScore perfect animated zoomIn hide"></div>
+        <div class="recordScore great animated zoomIn hide"></div>
+        <div class="recordScore goodTry animated zoomIn hide"></div>
+        <div class="recordText"></div>
+        <div class="record-btn">
+            <span class="time">20</span>
+            <button class="btn-stop"></button>
+        </div>
+    </div>
+</div>
+<!--  录音弹框 end-->
+
+<div id="h5_material_dialog" class="dialog material_dialog hide">
+    <span class="btn-close">&#10006;</span>
+    <div class="header">
+        <span class="tag"></span>
+        <h3 class="title">Material List (更换教材时，将重新下载教材）</h3>
+    </div>
+    <div class="main">
+        <ul class="list-material">
+
+        </ul>
+    </div>
+</div>
+
+<!-- h5course audio -->
+<audio id='j_audio_town' class="course-audio" preload="preload" controls="controls" src="image/audio_town.mp3"></audio>
+<!-- h5course audio -->
+
+<script src="/text/ccs/common/vendor.bundle_v1.0.0.js?t=<%= htmlWebpackPlugin.options.buildTime %>"></script>
+<script src="/text/ccs/common/sdk_1v1.bundle_v1.0.0.js?t=<%= htmlWebpackPlugin.options.buildTime %>"></script>
+<script src="/text/ccs/common/report_1v1.bundle_v1.0.0.js?t=<%= htmlWebpackPlugin.options.buildTime %>"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="shortcut icon" href="image/favicon/favicon.png">
+    <title>新游戏化场景产品实践</title>
+    <script src="common/vendor.bundle_v1.0.0.js"></script>
+    <script src="common/sdk.bundle_v1.0.0.js"></script>
+    <script src="common/report.bundle_v1.0.0.js"></script>
+    <script src="common/sdk_game_v1.0.0.js"></script>
+    <script src="common/EventQueue.js"></script>
+
+    <script src='common/createjs-2015.11.26.min.js'></script>
+    <script src="common/config.js"></script>
+    <script src="common/ByteBufferAB.min.js"></script>
+    <script src="common/ProtoBuf.min.js"></script>
+    <script src="common/Long.min.js"></script>
+</head>
+
+<body>
+    <!-- h5course sync screen mask -->
+    <div id="mask" class="mask mask-full hide"></div>
+
+    <div id="h5_course_container" class="h5_course_container">
+        
+        <div id="" class="h5_game_main">
+            <canvas id='game_canvas' class="canvas_game" width="1920" height="1080">您的浏览器不支持canvas，请使用现代浏览器。</canvas>
+        </div>
+
+        <div id="h5_game_footer" class="h5_game_footer">
+            <button id="h5_btn_star_open" class="btn" data-status='0'>open star</button>
+        </div>
+
+        <div id="h5_course_star_page" class="h5_course_star_page hide">
+            <iframe id="h5_course_star_frame" class="star_frame" src="" width="100%" height="100%" scrolling="no"></iframe>
+        </div>
+
+        <div id="h5_course_part" class="h5_course_part animated zoomIn hide">
+
+        </div>
+
+        <div class="h5_course_prizes_shade hide" id="h5_course_prizes_shade">
+            <div class="h5_course_prizes animated zoomIn hide" id="h5_course_prizes"></div>
+        </div>
+        
+    </div>
+
+
+    <div id="h5_progressbar" class="progressbar hide">
+        <div id="h5_progressbar_num" class="progress"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+@charset "utf-8";
+@imgBase: '../image/';
+.tg-box {
+  position: absolute;
+  z-index: 2001;
+  left: 0;
+  top: 1rem;
+  .fl {
+    float: left;
+  }
+  .tg {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0.5rem;
+    width: 0.72rem;
+    height: 0.96rem;
+    cursor: pointer;
+    &.active {
+      transform: translateX(8.23rem);
+      transition: transform 0.3s;
+    }
+    &.re-active {
+      transform: translateX(0);
+      transition: transform 0.3s;
+    }
+  }
+  .tg-btn {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0.96rem;
+    width: 0.72rem;
+    height: 0.96rem;
+  }
+  .tg-content {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 8.24rem;
+    height: 9.63rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 0 0.1rem 0.1rem 0;
+    padding: 0.1rem 0.25rem;
+    transform: translateX(-8.24rem);
+    li {
+      padding-bottom: 0.18rem;
+      border-bottom: 0.02rem #e4e4e4 solid;
+    }
+    .tg-list-tit {
+      height: 0.76rem;
+      line-height: 0.76rem;
+      .tg-list-num {
+        width: 0.36rem;
+        height: 0.36rem;
+        text-align: center;
+        line-height: 0.36rem;
+        border-radius: 100%;
+        background: #ff7200;
+        color: #fff;
+        font-size: 0.24rem;
+        font-weight: bold;
+        margin-top: 0.2rem;
+      }
+      h3 {
+        margin-left: .22rem;
+        color: #000;
+        font-size: .36rem;
+        font-weight: 400;
+        height: 0.76rem;
+        width: 6.8rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .tg-list-des {
+      padding-left: 0.58rem;
+      color: #666;
+      line-height: 0.37rem;
+      font-size: 0.22rem;
+    }
+
+    &.active {
+      transform: translateX(0);
+      transition: transform 0.3s;
+    }
+
+    &.re-active {
+      transform: translateX(-8.24rem);
+      transition: transform 0.3s;
+    }
+  }
+}
+

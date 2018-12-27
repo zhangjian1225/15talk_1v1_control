@@ -1,0 +1,578 @@
+@imgBase: '../image/';
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, STXihei, MingLiu;
+  overflow: hidden;
+  iframe {
+    border: none;
+    background: transparent;
+    box-sizing: border-box;
+  }
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+.btn {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  padding: 0 0.2rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: .2s;
+  background: #616161;
+  color: #eeece5;
+  border-radius: 0.5rem;
+  font-size: 0.25rem;
+  &:hover {
+    background: #3a3a3a;
+  }
+}
+
+.h5_course_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  bottom: 1rem;
+  z-index: 10;
+  border: 0.08rem dashed #b6b6b6;
+  box-sizing: border-box;
+  cursor: not-allowed;
+  &.mask-full {
+    bottom: 0;
+  }
+}
+.mask-forbid {
+  z-index: 2000;
+}
+
+.mask-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.2);
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    font-size: .5rem;
+    font-style: normal;
+    line-height: 1rem;
+    text-align: center;
+    background-color: #eeeeee;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .tip-con {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 1rem;
+    line-height: 1rem;
+    font-size: 0.4rem;
+    color: #ff3c3c;
+    text-align: center;
+    background: #fff;
+    /*.info-list {
+      li {
+        line-height: 0.5rem;
+        text-align: left;
+        padding-left: 1rem;
+        font-size: .3rem;
+      }
+    }*/
+  }
+}
+
+.canvas_game {
+  width: 19.2rem;
+  height: 10.8rem;
+  cursor: url("@{imgBase}/cursor.cur"),
+  auto;
+}
+
+.hide {
+  display: none;
+}
+
+.main_frame {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.close_btn {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url("@{imgBase}/close.png") no-repeat;
+  position: absolute;
+  cursor: pointer;
+  z-index: 50;
+  top: 0.1rem;
+  right: 0.1rem;
+  background-size: cover;
+}
+
+.h5_game_main {
+  position: relative;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.h5_game_footer {
+  position: relative;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btn {
+    float: left;
+    margin-left: 0.2rem;
+    color: #fdca01;
+    border-radius: 0.5rem;
+    font-size: 0.25rem;
+  }
+}
+.h5_course_star_page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 1rem;
+  z-index: 10;
+}
+.h5_course_part {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  z-index: 9;
+  &.hide {
+    display: none;
+  }
+  .h5_course_main {
+    position: relative;
+    flex: 1;
+    background-color: #f1f1f1;
+    overflow: hidden;
+  }
+  .h5_course_footer {
+    position: relative;
+    height: 1rem;
+    .h5_pager_box {
+      float: right;
+      height: 1rem;
+      margin-right: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .btn-page-prev, .btn-page-next {
+        height: 0.6rem;
+        width: 0.6rem;
+        padding: 0;
+        background: #eeeeee;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        &.disallow {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        .rect {
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          font-size: 0;
+          border-style: solid;
+          border-width: 0.14rem 0.18rem 0.14rem 0;
+          border-color: transparent #6c6c6c transparent transparent;
+        }
+        .rect-right {
+          border-width: 0.14rem 0 0.14rem 0.18rem;
+          border-color: transparent transparent transparent #6c6c6c;
+        }
+      }
+      .btn-page-next {
+        margin-left: 0.2rem;
+      }
+    }
+    .h5_btn_box {
+      float: right;
+      height: 1rem;
+      display: flex;
+      align-items: center;
+      .btn {
+        float: left;
+        margin-right: 0.2rem;
+        color: #fdca01;
+        border-radius: 0.5rem;
+        font-size: 0.25rem;
+      }
+
+      .btn_course_ensure {
+        color: #fff;
+        background: #fdca01;
+        &:hover {
+          background: #d8ac00;
+        }
+      }
+    }
+  }
+
+}
+
+.h5_course_prizes_shade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 60;
+  &.hide {
+    display: none;
+  }
+  .h5_course_prizes {
+    width: 4rem;
+    height: 2.68rem;
+    background: url("@{imgBase}/j1.png") no-repeat;
+    background-size: cover;
+  }
+}
+
+.progressbar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1.5rem;
+  margin-top: -0.1rem;
+  height: 0.2rem;
+  width: 3rem;
+  border-radius: 2rem;
+  background: #eee;
+  z-index: 100;
+  .progress {
+    width: 0;
+    height: 0.2rem;
+    background-color: #f1c40f;
+    border-radius: 2rem;
+  }
+}
+
+.screens {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  .frame {
+    /*background-color: #4cae4c;*/
+  }
+
+  &.single-block {
+    z-index: 1002;
+  }
+
+  &.share-single-block {
+    z-index: 1002;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    transform: scale(0, 0);
+  }
+
+  &.share-four-hidden {
+    visibility: hidden;
+    transform: scale(0, 0);
+  }
+
+  &.share-four-show {
+    visibility: visible;
+    transform: scale(1, 1);
+  }
+
+  &.share-single-hidden {
+    visibility: hidden;
+    transform: scale(0, 0);
+  }
+
+  &.share-single-show {
+    visibility: visible;
+    transform: scale(1, 1);
+  }
+
+  .screen {
+    position: relative;
+    float: left;
+    height: 50%;
+    width: 50%;
+    /*flex: 0 0 50%;*/
+    background: #e5e5e5;
+    border: 10px solid #e5e5e5;
+    box-sizing: border-box;
+    cursor: pointer;
+    .frame {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    .name {
+      position: absolute;
+      width: 100%;
+      line-height: 24px;
+      border-radius: 5px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      text-align: left;
+      text-indent: 10px;
+      font-size: 0.2rem;
+      z-index: 10;
+    }
+    .frame-mask {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 8;
+    }
+    .view {
+      position: absolute;
+      right: 0;
+      padding: 0 10px;
+      line-height: 24px;
+      border: none;
+      border-radius: 5px;
+      color: #fdca01;
+      cursor: pointer;
+      background-color: #000;
+      font-size: 0.2rem;
+      z-index: 10;
+    }
+
+    .screen-draw-box {
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 9;
+    }
+
+    &.fullShow {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1002;
+    }
+
+    &.share-fullShow {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1002;
+    }
+
+    &.hidden {
+      visibility: visible;
+      cursor: not-allowed;
+      background: #e0e0e0 url('@{imgBase}/img_offline.png') center no-repeat;
+      background-size: 2.5rem;
+      .frame {
+        opacity: 0;
+        background: #e0e0e0;
+      }
+      .screen-draw-box {
+        z-index: 7;
+      }
+    }
+
+    &.closeScreen {
+      visibility: hidden;
+    }
+
+    &.share-closeScreen {
+      visibility: hidden;
+    }
+
+    &.hide-scale {
+      position: absolute;
+      transform: scale(0, 0);
+    }
+  }
+}
+
+.h5_course_tool {
+  .btn-tool {
+    border-radius: 4px;
+    margin: 0.1rem;
+    padding: 0.04rem;
+    float: left;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    span {
+      width: 0.52rem;
+      height: 0.52rem;
+      display: block;
+      background-size: contain;
+    }
+    &:hover {
+      background: #eeeeee;
+    }
+    &.selected {
+      background: #fdca01;
+    }
+    &.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: scale(0.8);
+    }
+  }
+
+  .bind {
+    background: url('@{imgBase}bind.png') center no-repeat;
+  }
+  .text {
+    background: url('@{imgBase}text.png') center no-repeat;
+  }
+  .pencil {
+    background: url('@{imgBase}pencil.png') center no-repeat;
+  }
+  .rectangle {
+    background: url('@{imgBase}rect.png') center no-repeat;
+  }
+  .highlighter {
+    background: url('@{imgBase}highlighter.png') center no-repeat;
+  }
+  .rubber {
+    background: url('@{imgBase}rubber.png') center no-repeat;
+  }
+  .back {
+    background: url('@{imgBase}back.png') center no-repeat;
+  }
+  .delete {
+    background: url('@{imgBase}delete.png') center no-repeat;
+  }
+  .move {
+    background: url('@{imgBase}move.png');
+  }
+  .authorize {
+    background: url('@{imgBase}authorize.png');
+  }
+}
+
+.draw-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.2);
+  animation-duration: 0.6s;
+  transform: translate(-50%, -50%);
+}
+
+.screen-draw-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  animation-duration: 0.6s;
+  transform: translate(-50%, -50%);
+}
+
+.btn-screen-prev, .btn-screen-next {
+  position: absolute;
+  bottom: 3.8rem;
+  height: 70px;
+  width: 35px;
+  z-index: 1001;
+  cursor: pointer;
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.btn-screen-prev {
+  left: 0rem;
+  background: url('@{imgBase}turnleft.png') no-repeat 0 0;
+}
+
+.btn-screen-next {
+  right: 0rem;
+  background: url('@{imgBase}turnright.png') no-repeat 0 0;
+}
+
+.h5_course_screen_pages {
+  position: absolute;
+  display: flex;
+  bottom: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  li {
+    margin: 0 0.2rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    border-radius: 100%;
+    font-size: 0.28rem;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    &.active {
+      background-color: #fdca01;
+      color: #000;
+    }
+  }
+  &.hide {
+    display: none;
+  }
+}
+
